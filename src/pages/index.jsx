@@ -28,7 +28,6 @@ navBtn.addEventListener('click', () => {
   rolloutNav.classList.toggle('nav-closed');
 });
 
-
 rolloutNav.addEventListener('click', (event) => {
   if (event.target.tagName === 'A') {
     rolloutNav.classList.add('nav-closed');
