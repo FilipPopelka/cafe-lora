@@ -19,6 +19,10 @@ export const Menu = () => {
                 color: '#613916',
                 label: 'espresso',
               },
+              {
+                color: '#feeeca',
+                label: 'mléčná pěna',
+              },
             ]}
           />
 

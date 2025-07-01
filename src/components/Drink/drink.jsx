@@ -1,4 +1,5 @@
 import './drink.css';
+import { Layer } from '../Layer/layer.jsx';
 
 export const Drink = ({ id, name, ordered, image, layers }) => {
   return (
@@ -31,10 +32,9 @@ export const Drink = ({ id, name, ordered, image, layers }) => {
                 </div>
                 <div className="drink__info">
                   <h3>{name}</h3>
-                  <div className="layer">
-                    <div className="layer__color" style={{ backgroundColor: '#613916' }} />
-                    <div className="layer__label">espresso</div>
-                  </div>
+                  {layers.map((layer, index) => (
+                    <Layer key={index} color={layer.color} label={layer.label} />
+                  ))}
                 </div>
               </div>
               <form className="drink__controls">
@@ -52,14 +52,9 @@ export const Drink = ({ id, name, ordered, image, layers }) => {
                 </div>
                 <div className="drink__info">
                   <h3>{name}</h3>
-                  <div className="layer">
-                    <div className="layer__color" style={{ backgroundColor: '#b0dee1' }} />
-                    <div className="layer__label">voda</div>
-                  </div>
-                  <div className="layer">
-                    <div className="layer__color" style={{ backgroundColor: '#613916' }} />
-                    <div className="layer__label">espresso</div>
-                  </div>
+                  {layers.map((layer, index) => (
+                    <Layer key={index} color={layer.color} label={layer.label} />
+                  ))}
                 </div>
               </div>
               <form className="drink__controls">
