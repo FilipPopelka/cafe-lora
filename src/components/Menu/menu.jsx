@@ -1,4 +1,3 @@
-// components/Menu/menu.jsx
 import './menu.css';
 import { Drink } from '../Drink/drink.jsx';
 

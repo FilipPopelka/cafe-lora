@@ -39,7 +39,15 @@
 }
 
 .order-btn--ordered {
+  width: 10rem;
+  padding: 0.5rem 1rem;
+  color: white;
   background-color: #773d24;
+  border: none;
+  box-shadow: 0 0 5px #444;
+  border-radius: 1rem;
+  transition: 300ms;
+  cursor: pointer;
 }
 
 .order-btn:hover {

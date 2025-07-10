@@ -1,4 +1,3 @@
-// components/Drink/drink.jsx
 import './drink.css';
 import { Layer } from '../Layer/layer.jsx';
 
@@ -18,9 +17,13 @@ export const Drink = ({ id, name, ordered, image, layers }) => {
           ))}
         </div>
       </div>
-      <form className="drink__controls">
+    <form className="drink__controls" data-id={id} data-ordered={ordered}>
         <input type="hidden" className="order-id" value="0" />
-        <button className="order-btn">Objednat</button>
+        {ordered ? (
+          <button className="order-btn--ordered">Zrušit</button>
+        ) : (
+          <button className="order-btn">Objednat</button>
+        )}  
       </form>
     </div>
   );
