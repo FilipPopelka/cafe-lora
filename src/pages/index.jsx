@@ -1,3 +1,4 @@
+// index.jsx
 import { render } from '@czechitas/render';
 import '../global.css';
 import './index.css';
@@ -8,28 +9,34 @@ import { Gallery } from '../components/Gallery/gallery.jsx';
 import { Contact } from '../components/Contact/contact.jsx';
 import { Footer } from '../components/Footer/footer.jsx';
 
-document.querySelector('#root').innerHTML = render(
-  <div className="page">
-    <Header />
-    <main>
-        <Banner />
-        <Menu />
-        <Gallery />
-        <Contact />
-    </main>
-    <Footer />
-  </div>
-);
 
-const navBtn = document.querySelector('.nav-btn');
-const rolloutNav = document.querySelector('.rollout-nav');
+  const response = await fetch('http://localhost:4000/api/drinks');
+  const data = await response.json();
+  const listOfDrinks = data.data;
+  console.log(listOfDrinks);
 
-navBtn.addEventListener('click', () => {
-  rolloutNav.classList.toggle('nav-closed');
-});
+  document.querySelector('#root').innerHTML = render(
+    <div className="page">
+      <Header />
+      <main>
+          <Banner />
+          <Menu drinks={listOfDrinks} />
+          <Gallery />
+          <Contact />
+      </main>
+      <Footer />
+    </div>
+  );
 
-rolloutNav.addEventListener('click', (event) => {
-  if (event.target.tagName === 'A') {
-    rolloutNav.classList.add('nav-closed');
-  }
-});
+  const navBtn = document.querySelector('.nav-btn');
+  const rolloutNav = document.querySelector('.rollout-nav');
+
+  navBtn?.addEventListener('click', () => {
+    rolloutNav?.classList.toggle('nav-closed');
+  });
+
+  rolloutNav?.addEventListener('click', (event) => {
+    if (event.target.tagName === 'A') {
+      rolloutNav.classList.add('nav-closed');
+    }
+  });
