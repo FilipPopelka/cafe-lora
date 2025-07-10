@@ -16,7 +16,7 @@ import { Footer } from '../components/Footer/footer.jsx';
 
   document.querySelector('#root').innerHTML = render(
     <div className="page">
-      <Header />
+      <Header showMenu={true} />
       <main>
           <Banner />
           <Menu drinks={listOfDrinks} />
